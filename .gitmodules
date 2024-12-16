@@ -1,0 +1,6 @@
+[submodule "aspo_api"]
+	path = aspo_api
+	url = git@github.com:ssttonn/aspo_api.git
+[submodule "aspo_web"]
+	path = aspo_web
+	url = git@github.com:ssttonn/aspo_web.git
