@@ -1,4 +1,4 @@
-name: aspo_prod
+name: aspo_production
 services:
   nginx:
     build:
