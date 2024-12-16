@@ -1,11 +1,11 @@
-name: aspo
+name: aspo_dev
 services:
   nginx:
     restart: always
     build:
       context: ./nginx
       dockerfile: Dockerfile.dev
-    container_name: nginx_container
+    container_name: nginx_dev_container
     depends_on:
       - aspo_api
       - aspo_web
@@ -17,16 +17,19 @@ services:
     build:
       context: ./aspo_api
       dockerfile: Dockerfile.dev
-    container_name: aspo_api_container
+    container_name: aspo_dev_api_container
     volumes:
       - /aspo_api/node_modules
       - ./aspo_api:/aspo_api
     environment:
       - PORT=${API_PORT}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - JWT_REFRESH_TOKEN_SECRET_KEY=${JWT_REFRESH_TOKEN_SECRET_KEY}
   aspo_web:
     build:
       context: ./aspo_web
       dockerfile: Dockerfile.dev
+    container_name: aspo_dev_web_container
     volumes:
       - /aspo_web/node_modules
       - ./aspo_web:/aspo_web

@@ -1,0 +1,28 @@
+name: aspo_prod
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx_prod_container
+    depends_on:
+      - aspo_api
+      - aspo_web
+    ports:
+      - "3050:80"
+  aspo_api:
+    build:
+      context: ./aspo_api
+      dockerfile: Dockerfile
+    container_name: aspo_prod_api_container
+    environment:
+      - PORT=${API_PORT}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - JWT_REFRESH_TOKEN_SECRET_KEY=${JWT_REFRESH_TOKEN_SECRET_KEY}
+  aspo_web:
+    build:
+      context: ./aspo_web
+      dockerfile: Dockerfile
+    container_name: aspo_prod_web_container
+    environment:
+      - VITE_PORT=${WEB_PORT}
