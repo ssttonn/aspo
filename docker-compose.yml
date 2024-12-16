@@ -5,6 +5,8 @@ services:
       context: ./nginx
       dockerfile: Dockerfile
     container_name: nginx_prod_container
+    mem_limit: 128m
+    hostname: nginx
     depends_on:
       - aspo_api
       - aspo_web
@@ -15,6 +17,8 @@ services:
       context: ./aspo_api
       dockerfile: Dockerfile
     container_name: aspo_prod_api_container
+    mem_limit: 128m
+    hostname: aspo_api
     environment:
       - PORT=${API_PORT}
       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
@@ -24,5 +28,7 @@ services:
       context: ./aspo_web
       dockerfile: Dockerfile
     container_name: aspo_prod_web_container
+    mem_limit: 128m
+    hostname: aspo_web
     environment:
       - VITE_PORT=${WEB_PORT}
