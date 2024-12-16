@@ -9,6 +9,10 @@ jobs:
     steps:
       - name: Checkout Aspo source code
         uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          token: ${{ secrets.PAT_TOKEN }}
+
       - name: Generate deployment package to deploy to EB
         run: zip -r deploy.zip . -x '*.git*'
       
