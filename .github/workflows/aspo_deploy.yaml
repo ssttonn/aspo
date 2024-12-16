@@ -22,7 +22,7 @@ jobs:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: Aspo Production
-          environment_name: AspoProduction-env
+          environment_name: AspoProduction-env-1
           existing_bucket_name: elasticbeanstalk-ap-southeast-2-339712796583
           region: ap-southeast-2
           version_label: ${{ github.sha }}
