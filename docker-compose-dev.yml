@@ -1,4 +1,4 @@
-name: aspo_dev
+name: aspo_development
 services:
   nginx:
     restart: always
