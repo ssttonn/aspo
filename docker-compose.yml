@@ -8,8 +8,6 @@ services:
     depends_on:
       - aspo_api
       - aspo_web
-    ports:
-      - "3050:80"
   aspo_api:
     build:
       context: ./aspo_api
