@@ -39,6 +39,7 @@ services:
       - PORT=${API_PORT}
       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
       - JWT_REFRESH_TOKEN_SECRET_KEY=${JWT_REFRESH_TOKEN_SECRET_KEY}
+      - DATABASE_URL=${DATABASE_URL}
   aspo_web:
     build:
       context: ./aspo_web
